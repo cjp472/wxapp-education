@@ -1,0 +1,10 @@
+<view class="promotion-info">
+  <!-- <image src="{{userInfo.avatarUrl}}" mode="widthFix"></image> -->
+  <image src="{{API_URL}}{{codePath}}" mode="widthFix"></image>
+  <text>{{userInfo.nickName}}</text>
+  <text>可分享给好友哦~</text>
+</view>
+<view class="btn-box">
+  <button class="shareBtn" open-type="share">分享好友</button>
+</view>
+<view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>

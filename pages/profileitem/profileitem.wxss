@@ -1,0 +1,305 @@
+/* tab选项卡 */
+.title{
+  position: fixed;
+  top:0;
+  width: 100%;
+  height: 100rpx;
+  z-index: 99;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+}
+.title-item{
+  /* width:33.33%; */
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+.on{
+  color:#028ce5;
+  border-bottom:4rpx solid #028ce5;
+}
+/* 我的订单内容 */
+.container{
+  margin-top:120rpx;
+  padding-bottom: 60rpx;
+}
+
+.container-item{
+  width: 100%;
+  /* background: #fff; */
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+.goods-tiem{
+  background: #fff;
+  padding-top: 15rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-bottom: 5rpx;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rpx;
+}
+.order-detail{
+  background: #fff;
+  display: flex;
+  flex-direction: row-reverse;
+  /* justify-content:space-between; */
+  padding: 10rpx 30rpx 10rpx 20rpx;
+  margin-top: 1rpx;
+  margin-bottom: 1rpx;
+}
+.order-status{
+  display: flex;
+  flex-direction: row;
+  font-size: 32rpx;
+}
+.order-right{
+  margin-right: 40rpx;
+}
+.order-status text:nth-child(1){
+  padding-right: 10rpx;
+}
+.order-status text:nth-child(2){
+  color: #f83131;
+}
+.payBtn{
+  padding:0 30rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  color:#fff;
+  background: #f83131;
+  border-radius: 10rpx;
+}
+.goods-tiem image{
+  width:150rpx;
+}
+.item-text{
+  width: 500rpx;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15rpx;
+}
+.item-text .goods_mo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+ .goods_mo view>text:nth-child(2){
+  color: #f83131;
+  margin-left: 10rpx;
+} 
+.goods-name{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  height: 70rpx;
+}
+
+.delete_payment{
+  background: #fff;
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 15rpx;
+  padding-right: 30rpx;
+  padding-bottom: 15rpx;
+}
+.delete_payment .delete,
+.comfRecv{
+  padding:0 30rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  color:#fff;
+  background: #f83131;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+
+
+
+/* 收货地址 */
+.recAddress-box{
+  padding-bottom: 140rpx;
+}
+.recAddress{
+  background-color: #fff;
+  margin-bottom: 10rpx;
+  font-size: 30rpx;
+}
+.rec-detail{
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #e0e0e0;
+}
+.rec-address-text{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  height: 70rpx;
+  font-size: 26rpx;
+}
+.rec-edit{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 26rpx;
+  padding: 20rpx;
+}
+.rec-edit icon,
+.rec-edit text{
+  vertical-align:middle;
+}
+.rec-edit text{
+  margin-left: 5rpx;
+}
+.rec-btn navigator{
+  display: inline-block;
+}
+.rec-btn text,
+.rec-btn navigator{
+  margin:0 15rpx;
+  font-size: 28rpx;
+}
+
+.addAddress{
+  position: fixed;
+  bottom:20rpx;
+  height: 80rpx;
+  width: 100%;
+  text-align: center;
+}
+.addAddress text{
+  display: block;
+  margin:0 auto;
+  width: 80%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background-color: #f83131;
+  border-radius: 10rpx;
+}
+
+
+/* 优惠券 */
+.coupon{
+  margin-top:100rpx;
+  padding:20rpx;
+  background-color: #fff;
+}
+.coupon-box{
+  margin: 0 auto;
+  width:90%;
+  margin-bottom:20rpx;
+}
+.coupon-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200rpx;
+  color:#028ce5;
+  border:1rpx solid #028ce5;
+  border-radius: 10rpx;
+}
+.coupon-detail{
+  display: flex;
+  flex-direction: row;
+  height: 150rpx;
+  line-height: 150rpx;
+}
+.coupon-cont{
+  font-size: 60rpx;
+  margin-left: 10rpx;
+}
+.coupon-cont text{
+  font-size: 30rpx;
+}
+.coupon-condition{
+  margin-top: 20rpx;
+  margin-left: 50rpx;
+  display: flex;
+  flex-direction: column;
+  line-height: 50rpx;
+  font-size: 30rpx;
+}
+.useTime{
+  padding-left: 20rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  background-color: #028ce5;
+  font-size: 30rpx;
+}
+
+/* 一云码记录 */
+.period{
+  display: flex;
+  flex-direction: column;
+}
+.gotTime{
+  font-size: 26rpx;
+}
+.goods-img image{
+  margin-top: 10rpx;
+  width: 120rpx;
+}
+.recordList{
+  position: relative;
+}
+.lotteryType{
+  position: absolute;
+  right: 120rpx;
+  top: 15rpx;
+  width: 120rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  border: 6rpx solid #b9cd12;
+  border-radius: 50%;
+  -webkit-transform:rotate(45deg);
+  font-size: 35rpx;
+  font-weight: bold;
+  color: #b9cd12;
+}
+
+/* 客服 */
+.service-item{
+  position: relative;
+  padding-left: 20rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  overflow: hidden;
+  background-color: #fff;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.service image,
+.service contact-button{
+  width: 56rpx;
+  vertical-align:middle;
+}
+.contact-box{
+  position: absolute;
+  left: 15rpx;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+}
+.service contact-button{
+  opacity: 0;
+} 
+.service text{
+  margin-left: 20rpx;
+  font-size: 26rpx;
+}
+contact-button{
+  width: 100%;
+  z-index: 5;
+}
+
+

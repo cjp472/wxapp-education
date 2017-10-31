@@ -1,0 +1,62 @@
+<template name="pDownLoading">
+	<view class="pDownLoading">
+		<view class="la-ball-pulse">
+			<view></view>
+			<view></view>
+			<view></view>
+		</view>
+	</view>
+</template>
+
+<!-- <template name="pUpLoading">
+	<view class="pUpLoading">
+		<view class="la-ball-newton-cradle">
+			<view></view>
+			<view></view>
+			<view></view>
+			<view></view>
+		</view>
+	</view>
+</template> -->
+
+<template name="pUpLoading">
+	<view class="la-ball-beat">
+		<view></view>
+		<view></view>
+		<view></view>
+	</view>
+</template>
+
+<!-- **************咨询/视频/音频列表************** -->
+
+<template name="content-list">
+  <view class="content-list">
+    <view class="image">
+      <image class="borderRadius" src="{{IMG_URL}}{{image}}" mode="widthFix"></image>
+      <view class="playBtn">
+         <block wx:if="{{!item.belongType == '5'}}">
+          <image src="../../images/home_icon_play@2x.png" mode="widthFix" style="width:50rpx;"></image> 
+         </block>
+      </view>
+    </view>
+    <view class="contentInfo">
+      <view class="contentText">
+        <text class="f28 fBold webkitBox">{{title}}</text>
+        <text class="f24 fGray">{{sender}}</text>
+      </view>
+      <view class="recordInfo fGray f24">
+        <!-- <view class="recoreRight">
+          <view class="listenNum">
+            <image src="../../images/home_icon_amountofplay-@2x.png" mode="widthFix"></image>
+            <text class="mLeft5">{{listenNum}}</text>
+          </view>
+          <view class="commentNum mLeft20">
+            <image src="../../images/home_icon_comment@2x.png" mode="widthFix"></image>
+            <text class="mLeft5">{{commentNum}}</text>
+          </view>
+        </view> -->
+        <text style="padding:0;">{{date}}</text>
+      </view>
+    </view>
+  </view>
+</template>

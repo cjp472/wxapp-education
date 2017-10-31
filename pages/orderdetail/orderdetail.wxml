@@ -1,0 +1,56 @@
+<block wx:if="{{!loadingOver}}" >
+  <view class="la-ball-clip-rotate-pulse la-blue">
+    <view></view>
+    <view></view>
+  </view>
+</block>
+
+
+<block wx:if="{{loadingOver}}">
+  <navigator url="../../pages/profileitem/profileitem?pageType=1">
+    <view class="rec-info" bindtap="changeAddress">
+      <text wx:if="{{!recInfo.addressID}}" class="empty-text">请前往填写收货信息>>></text>
+      <block wx:else>
+        <text class="rec-user">{{recInfo.userName}}  {{recInfo.phone}}</text>
+        <text class="rec-address">{{recInfo.province}}{{recInfo.city}}{{recInfo.area}}{{recInfo.address}}</text>
+      </block>
+    </view>
+  </navigator>
+
+  <view class="order-goods" >
+    <view class="goods-detail" wx:for="{{orderDetails}}" wx:key="{{index}}">
+      <image class="goods-img" src="{{IMG_URL}}{{item.picPath}}" mode="widthFix"></image>
+      <view class="goods-text">
+        <text class="goods-name">{{item.goodsName}}</text>
+        <text class="goods-num fontGray">{{item.goodsNum}}</text>
+        <text class="user-price fontRed">￥{{item.offerPrice?item.offerPrice:item.userPrice}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="order-coupon">
+    <text>优惠券</text>
+    <view class="fontGray">
+      <text class="used-coupon">无可用</text>
+      <text class="arrow-right">></text>
+    </view>
+  </view>  -->
+  <view class="order-total">
+    <view class="total-calcute">
+      <view class="calcute-name">
+        
+        <!-- <text>优惠券</text> -->
+        <!-- <text>商品金额</text>
+        <text>实付金额</text>  -->
+        <text>订单总价</text>
+      </view>
+      <view class="calcute-price fontRed">
+        <!-- <text>-￥0.00</text> -->
+        <!-- <text>￥380.30</text>
+        <text>+￥0.00</text>-->
+        <text>￥{{totalPrices}}</text>
+      </view>
+    </view>
+    <text class="pay-btn" bindtap="goPay">微信支付</text>
+  </view>
+  <view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>
+</block>

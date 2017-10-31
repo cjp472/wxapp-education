@@ -1,0 +1,68 @@
+<block wx:if="{{!loadingOver}}" >
+  <view class="la-ball-clip-rotate-pulse la-blue">
+    <view></view>
+    <view></view>
+  </view>
+</block>
+
+
+<block wx:if="{{loadingOver}}">
+  <view class="order-status fontGray">
+  	<text>状态: <text class="fontRed {{recInfo.ordStatus == 0? '':'hide'}}">待付款</text><text class="fontRed {{recInfo.ordStatus == 2? '':'hide'}}">待收货</text><text class="fontRed {{recInfo.ordStatus == 3? '':'hide'}}">已完成</text></text>
+  	<text>订单编号: <text class="fontBlack">{{recInfo.goodsOrderNum}}</text></text>
+  	<text>下单时间: <text class="fontBlack">{{recInfo.orderDateTime}}</text></text>
+  	<block wx:if="{{recInfo.ordStatus == 0}}">
+  		<text class="pay-btn" bindtap="weChatPay">微信支付</text>
+  	</block>
+  </view>
+
+  <view class="order-revInfo">
+  	<view class="fontGray revInfo-title">
+	  	<text>商品金额:</text>
+  		<text>收货人:</text>
+	  	<text>收货地址:</text>
+  	</view>
+  	<view class="revInfo-cont">
+	  	<text class="fontRed">￥{{totalPrices}}</text>
+  		<text class="fontBlack">{{recInfo.recvName}} {{recInfo.recvPhone}}</text>
+	  	<text>{{recInfo.recvAddress}}</text>
+  	</view>
+  </view>
+
+  <view class="order-goods" >
+    <view class="goods-detail" wx:for="{{orderDetails}}" wx:key="{{index}}">
+      <image class="goods-img" src="{{IMG_URL}}{{item.picPath}}" mode="widthFix"></image>
+      <view class="goods-text">
+        <text class="goods-name">{{item.goodsName}}</text>
+        <text class="goods-num fontGray">{{item.goodsNum}}</text>
+        <text class="user-price fontRed">￥{{item.offerPrice?item.offerPrice:item.userPrice}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="order-coupon">
+    <text>优惠券</text>
+    <view class="fontGray">
+      <text class="used-coupon">无可用</text>
+      <text class="arrow-right">></text>
+    </view>
+  </view>  -->
+  <view class="order-total">
+    <view class="total-calcute">
+      <view class="calcute-name">
+        
+        <!-- <text>优惠券</text> -->
+        <!-- <text>商品金额</text>
+        <text>实付金额</text>  -->
+        <text>实付金额</text>
+      </view>
+      <view class="calcute-price fontRed">
+        <!-- <text>-￥0.00</text> -->
+        <!-- <text>￥380.30</text>
+        <text>+￥0.00</text>-->
+        <text>￥{{totalPrices}}</text>
+      </view>
+    </view>
+    <!-- <text class="return-btn" bindtap="goPay">申请退货</text> -->
+  </view>
+  <view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>
+</block>

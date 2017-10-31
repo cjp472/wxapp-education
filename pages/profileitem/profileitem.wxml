@@ -1,0 +1,195 @@
+<!-- 类型:订单、收货地址、优惠券 -->
+<view class="type-1">
+  <view class="title" wx:if="{{isTitle}}">
+    <text class="title-item {{currentTab==index ? 'on' : ''}}" wx:for="{{title}}" wx:key="{{index}}" 
+    data-index="{{index}}" style="{{tabWidth}}" bindtap="selectTab" >{{item.name}}</text>
+  </view>
+  <!-- 我的订单 -->
+  <block wx:if="{{pageType == 0}}">
+    <view wx:if="{{containerShow == 2}}"   class="container" >
+      <view  class="container-item" wx:for="{{orderInfo.finishOrder}}" wx:key="{{index}}">
+        <view class="goods-tiem" wx:for="{{item.goodsOrderList}}" wx:key="{{index}}" bindtap="toFinishDetail" data-index="{{index}}">
+          <image src="{{IMG_URL}}{{item.picPath}}" mode="widthFix"></image>
+          <view class="item-text">
+            <text class="goods-name">{{item.goodsName}}</text>
+            <text class="goods-num fontGray">{{item.goodsNum}}</text>
+            <text class="goods-price">单价: ￥{{item.goodsPrice}}</text>
+          </view>
+        </view>
+        <view class="order-detail">
+          <view class="order-status">
+            <!-- <text >状态: 已完成</text> -->
+            <text>总价: </text>
+            <text>￥{{item.totalPrice}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:elif="{{containerShow == 0}}"   class="container" >
+
+      <view  class="container-item" wx:for="{{orderInfo.obligation}}" wx:key="{{index}}">
+
+        <view class="goods-tiem" wx:for="{{item.goodsOrderList}}" wx:key="{{index}}" bindtap="toOblDetail" data-index="{{index}}">
+          <image src="{{IMG_URL}}{{item.picPath}}" mode="widthFix"></image>
+          <view class="item-text">
+            <text class="goods-name">{{item.goodsName}}</text>
+            <view class="goods_mo">
+               <view> 
+                 <text class="goods-price">单价:</text> 
+                <text>￥{{item.goodsPrice}}</text>
+               </view> 
+              <text class="goods-num fontGray">{{item.goodsNum}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="order-detail">
+          <view class="order-status">
+            <text>总价: </text>
+            <text>￥{{item.totalPrice}}</text>
+          </view>
+          <view class="order-status order-right">
+            <text>共{{item.goodsNums}}件商品</text>
+          </view>
+        </view>
+
+        <view class="delete_payment">
+          <text wx:if="{{item.status ==0 }}" class="payBtn" bindtap="weChatPay" data-index="{{index}}">去付款</text>
+          <text class="delete" data-index="{{index}}" bindtap='delete'>删除订单</text>
+        </view>
+
+      </view>
+
+    </view>
+    <view wx:else="{{containerShow == 1}}"  class="container" >
+      <view  class="container-item" wx:for="{{orderInfo.waitForReceiving}}" wx:key="{{index}}">
+        <view class="goods-tiem" wx:for="{{item.goodsOrderList}}" wx:key="{{index}}" bindtap="toWaitFRevDetail" data-index="{{index}}">
+          <image src="{{IMG_URL}}{{item.picPath}}" mode="widthFix"></image>
+          <view class="item-text">
+            <text class="goods-name">{{item.goodsName}}</text>
+            <text class="goods-num fontGray">{{item.goodsNum}}</text>
+            <text class="goods-price">单价: ￥{{item.goodsPrice}}</text>
+          </view>
+        </view>
+        <view class="order-detail">
+          <view class="order-status">
+            <!-- <text>状态: 待收货</text> -->
+            <text>总价: </text>
+            <text>￥{{item.totalPrice}}</text>
+          </view>
+        </view>
+        <view class="delete_payment">
+          <text class="comfRecv" data-index="{{index}}" bindtap='comfRecv'>确认收货</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- 收货地址 -->
+  <block wx:if="{{pageType == 1 || pageType ==2}}">
+    <view class="recAddress-box">
+      <view class="recAddress" wx:for="{{recAddress}}" wx:key="{{index}}">
+        <view class="rec-detail" bindtap="bacdOrderdetail" data-index="{{index}}">
+          <text>{{item.userName}}  {{item.phone}}</text>
+          <text class="fontGray rec-address-text">{{item.recvAddress}}</text>
+        </view>
+        <view class="rec-edit fontGray">
+          <view class="default-address" bindtap="bindCheckbox" data-index="{{index}}">
+            <icon wx:if="{{item.IsDefault}}" type="success" color="red" size="15" />
+            <icon wx:else type="circle" size="15"  />
+            <text>默认地址</text>
+          </view>
+          <view class="rec-btn">
+            <text data-index="{{index}}" bindtap="paasAddressJson">编辑</text>
+            <text data-index="{{index}}" bindtap="delAddress" >删除</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <navigator url="../../pages/addressedit/addressedit?editType=0"><view class="addAddress"><text>新建收货地址</text></view></navigator>
+  </block>
+<!-- 优惠券 -->
+  <block wx:if="{{pageType == 3}}">
+    <view class="coupon">
+      <view class="coupon-box" wx:for="{{couponInfo}}" wx:key="{{index}}">
+        <view class="coupon-item">
+          <view class="coupon-detail">
+            <text class="coupon-cont"><text>￥</text >{{item.cont}}</text>
+            <view class="coupon-condition">
+              <text class="coupon-condition-text">{{item.condNum}}</text>
+              <text class="coupon-condition-text">{{item.condGoods}}</text>
+            </view>
+          </view>
+          <view class="useTime fontWhite">有效期:{{item.useTime}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+
+ <!-- 积分  -->
+ <!-- <block wx:if="{{pageType == 4}}">
+  <view class="classname">
+
+  </view>
+</block>  -->
+
+<!-- 积分 -->
+ <block wx:if="{{pageType == 5}}">
+  <view class="table">
+  <view class="tr bg-w">
+    <view class="th">期数</view>
+    <view class="th">商品</view>
+    <view class="th ">开始码</view>
+    <view class="th ">终止码</view>
+  </view>
+  <block wx:for="{{oneBuyInfo}}" wx:key="{{index}}">
+    <view class="tr bg-g recordList" wx:if="{{index % 2 == 0}}">
+      <view class="td period">
+        <text>第{{item.periodID}}期</text>
+        <text class="gotTime fontGray">{{item.buyTime}}</text>
+      </view>
+      <view class="td goods-img" bindtap="goodsDetailJump" data-index="{{index}}">
+        <image src="{{IMG_URL}}{{item.goodsImage}}" mode="widthFix"></image>
+      </view>
+      <view class="td">{{item.begin}}</view>
+      <view class="td">{{item.end}}</view>
+      <view class="lotteryType" wx:if="{{item.status==1}}">已开奖</view>
+    </view>
+    <view class="tr recordList" wx:else>
+      <view class="td period">
+        <text>第{{item.periodID}}期</text>
+        <text class="gotTime fontGray">{{item.buyTime}}</text>
+      </view>
+      <view class="td goods-img" bindtap="goodsDetailJump" data-index="{{index}}">
+        <image src="{{IMG_URL}}{{item.goodsImage}}" mode="widthFix"></image>
+      </view>
+      <view class="td">{{item.begin}}</view>
+      <view class="td">{{item.end}}</view>
+      <view class="lotteryType" wx:if="{{item.status==1}}">已开奖</view>
+    </view>
+  </block>
+</view>
+</block> 
+
+
+<!-- 客服 -->
+<block wx:if="{{pageType == 6}}">
+  <view class="service">
+    <view class="service-item" bindtap="serviceCall">
+      <image src="../../images/phone_service.png" mode="widthFix"></image>
+      <text>客服电话</text>
+    </view>
+    <view class="service-item">
+       <image src="../../images/wechat_service.png" mode="widthFix"></image>
+      <text>微信客服</text> 
+      <view class="contact-box">
+        <contact-button wx:for="{{weChatService}}" type="default-dark" size="item.size" session-from="weapp" wx:key="{{index}}"></contact-button>
+      </view>
+    </view>
+  </view>
+</block>
+
+</view>
+
+<view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{showMessage}}">{{messageContent}}</view>
+

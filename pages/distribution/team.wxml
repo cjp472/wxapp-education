@@ -1,0 +1,13 @@
+<view class="team-header">
+  <view class="header-info">
+    <image src="{{userInfo.avatarUrl}}" mode="widthFix"></image>
+    <text>{{userInfo.nickName}}</text>
+  </view>
+  <text class="team-num">团队总人数: {{totalNum}} 人</text>
+</view>
+<view class="team-list">
+  <view class="team-item" wx:for="{{teamInfo}}" wx:key="{{index}}" data-index="{{index}}" bindtap="teamDetail">
+    <text class="team-item-tilte">{{item.title}}</text>
+    <text class="team-item-num fontGray">人数: {{item.num}} 人 ></text>
+  </view>
+</view>

@@ -1,0 +1,32 @@
+<block wx:if="{{!loadingOver}}" >
+  <view class="la-ball-clip-rotate-pulse la-blue">
+    <view></view>
+    <view></view>
+  </view>
+</block>
+<block wx:if="{{loadingOver}}">
+  <view class="user-info">
+      <image class="user-img" src="{{userInfo.avatarUrl}}" mode="widthFix"></image>
+      <!-- <text class="user-nickName">{{userInfo.nickName}}</text> -->
+      <view class="setting {{distribList[0]?'show':'hide'}}" bindtap="setting" >设置账号</view>
+    </view>
+  <scroll-view id="page">
+    <view class="func-list">
+      <navigator url="../../pages/profileitem/profileitem?pageType={{item.pageType}}"  wx:for="{{funcList}}" wx:key="{{index}}" 
+      hover-class="none"  data-index="{{index}}">
+        <view class="func-item">
+          <image src="{{IMG_URL}}{{item.image}}" mode="widthFix"></image> 
+          <text>{{item.name}}</text>
+        </view>
+      </navigator>
+    </view>
+    <view class="func-list {{distribList[0]?'show':'hide'}}">
+      <view class="func-item" wx:for="{{distribList}}" wx:key="{{index}}"  data-index="{{index}}" bindtap="jumpDistribList">
+        <image src="{{IMG_URL}}{{item.image}}" mode="widthFix"></image> 
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>
+  
+  </block>

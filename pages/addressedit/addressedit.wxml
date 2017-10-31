@@ -1,0 +1,40 @@
+<form bindsubmit="savePersonInfo">
+  <view class="flex-row">
+    <text>姓名</text><input type="text" name="name" value="{{addressJson.userName}}" placeholder="姓名" />
+  </view>
+  <view class="flex-row">
+    <text>手机号码</text><input type="number" name="phone" value="{{addressJson.phone}}" placeholder="手机号码" />
+  </view>
+  <view class="flex-row">
+    <text>省</text>
+    <picker bindchange="changeProvince" mode="selector" range="{{provinceName}}" value="{{provinceSelIndex}}">
+      <view class="picker">
+        {{addressJson.province|| provinceName[provinceSelIndex] || '--请选择--'}}
+      </view>
+      <input type="text" name="province" value="{{addressJson.province? addressJson.province : provinceName[provinceSelIndex]}}" class="hide"/>
+    </picker>
+  </view>
+    <view class="flex-row">
+    <text>市</text>
+    <picker bindchange="changeCity" mode="selector" range="{{cityName}}" value="{{citySelIndex}}" disabled="{{!cityEnabled}}">
+      <view class="picker">
+        {{addressJson.city? addressJson.city : !cityEnabled ? '':  cityName[citySelIndex] || '--请选择--'}}
+      </view>
+      <input type="text" name="city" value="{{addressJson.city? addressJson.city : cityName[citySelIndex]}}" class="hide"/>
+    </picker>
+  </view>
+    <view class="flex-row">
+    <text>区/县</text>
+    <picker bindchange="changeDistrict" mode="selector" range="{{districtName}}" value="{{districtSelIndex}}" disabled="{{! districtEnabled}}">
+      <view class="picker">
+        {{addressJson.area? addressJson.area : !districtEnabled ? '': districtName[districtSelIndex] || '--请选择--'}}
+      </view>
+      <input type="text" name="district" value="{{addressJson.area? addressJson.area : districtName[districtSelIndex]}}" class="hide"/>
+    </picker>
+  </view>
+  <view class="flex-row">
+    <text>详细地址</text><input type="text" name="address" value="{{addressJson.address}}" placeholder="街道地址" />
+  </view>
+  <button formType="submit" class="save-btn">保 存</button>
+</form>
+<view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>

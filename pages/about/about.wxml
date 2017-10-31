@@ -1,0 +1,36 @@
+<block wx:if="{{!loadingOver}}" >
+  <view class="la-ball-clip-rotate-pulse la-blue">
+    <view></view>
+    <view></view>
+  </view>
+</block>
+<block wx:if="{{loadingOver}}">
+  <view class="aboutTap">
+    <text class="{{tapSelect == index? 'on':''}}" wx:for="{{tapInfo}}" bindtap="changeTap" data-index="{{index}}" wx:key="{{index}}">{{item.name}}</text>
+  </view>
+
+
+  <view class="container" wx:if="{{tapSelect == index}}" wx:for="{{tapInfo}}" wx:key="{{index}}" data-index="{{index}}">
+    <image  src="{{IMG_URL}}{{item.image}}" mode="widthFix"></image> 
+  </view> 
+
+
+      <!-- <view class="container" wx:if="{{tapSelect == index}}" wx:for="{{tapInfo}}" wx:key="{{index}}" data-index="{{index}}">
+        <image wx:if="{{tapSelect !== 2}}" src="{{IMG_URL}}{{item.image}}" mode="widthFix"></image> 
+        <block wx:if="{{tapSelect == 2}}" >
+          <view class="about-map">
+          <map bindtap="mapClick" longitude="{{markers[0].longitude}}" latitude="{{markers[0].latitude}}" scale="14"  markers="{{markers}}" />
+          <button class="map-btn" bindtap="mapClick" type="primary">前往导航</button> 
+          </view>  
+         <view class="contact">
+           <view class="contact-item" bindtap="phoneCall">
+            <image src="../../images/phone_service.png" mode="widthFix"></image>
+              <text>联系电话: {{contact.contactWay}}</text>
+            </view>
+         </view>
+        </block> 
+      </view>  -->
+    <!-- </block> -->
+
+
+</block>

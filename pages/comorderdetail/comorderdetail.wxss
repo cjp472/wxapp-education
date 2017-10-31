@@ -1,0 +1,123 @@
+/* pages/orderdetail/orderdetail.wxss */
+/* 订单状态 */
+.order-status{
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  line-height: 150%;
+  background-color: #fff;
+}
+
+/* 订单收获信息 */
+.order-revInfo{
+  margin-top: 20rpx;
+  padding: 20rpx;
+  display: flex;
+  font-size: 28rpx;
+  line-height: 150%;
+  background-color: #fff;
+}
+.revInfo-title,
+.revInfo-cont{
+	display: flex;
+	flex-direction: column;
+}
+.revInfo-title{
+	width:150rpx;
+}
+/* 订单商品 */
+.order-goods{
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.goods-detail{
+  padding:20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.goods-img{
+  width: 150rpx;
+}
+.goods-text{
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  line-height: 50rpx;
+  font-size: 30rpx;
+}
+.goods-name{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+}
+.goods-num{
+  font-size: 26rpx;
+}
+
+/* 优惠券 */
+.order-coupon{
+  margin-top:20rpx;
+  padding:20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 30rpx;
+  background-color: #fff;
+}
+.used-coupon{
+  font-size: 26rpx;
+}
+
+/* 结算 */
+.order-total{
+  margin-top: 20rpx;
+  padding:20rpx;
+  background-color: #fff;
+  font-size: 26rpx;
+  line-height: 40rpx;
+}
+.total-calcute{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  padding-bottom: 20rpx;
+  /* border-bottom:1rpx solid #e0e0e0; */
+}
+.calcute-name,
+.calcute-price{
+  display: flex;
+  flex-direction: column;
+}
+.calcute-price{
+  align-items: flex-end;
+}
+.pay-btn{
+  display: block;
+  margin:0 auto;
+  margin-top:20rpx;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 35rpx;
+  color:#fff;
+  background-color: #62b900; 
+  /* background-color: #f33939; */
+  border-radius: 10rpx;
+}
+.return-btn{
+  display: block;
+  margin:0 auto;
+  margin-top:20rpx;
+  width: 95%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 35rpx;
+  color:#000;
+  background-color: #f0f0f4; 
+  border:1rpx solid #ccc;
+  border-radius: 10rpx;
+}

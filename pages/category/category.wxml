@@ -1,0 +1,19 @@
+<!-- --------左边一级分类-------- -->
+<scroll-view class="category-title" scroll-y>
+  <view class="category-title-tiem {{currentTab==item.categoryID ? 'on' : ''}}" 
+  data-categoryID="{{item.categoryID}}"  bindtap="swichTab"  wx:for="{{categoryInfo}}" 
+   wx:key="item.id">{{item.categoryName}}</view>
+</scroll-view>
+
+<!-- --------右边二级分类-------- -->
+<scroll-view class="category-container" scroll-y>
+  <view class="flex-row">
+    <view class="flex-view-item" wx:for="{{goodsInfo}}" wx:key="item.goodsId" data-index="{{index}}" bindtap="toGoodsDetail">
+      <image src="{{IMG_URL}}{{item.src}}" mode="widthFix"></image>
+      <view class="goods-text">
+        <text class="goods-name">{{item.goodsName}}</text>
+        <text class="fontRed goods-price">￥{{item.price}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

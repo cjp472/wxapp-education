@@ -1,0 +1,26 @@
+<view class="title" >
+    <text class="title-item {{currentTab==index ? 'on' : ''}}" wx:for="{{title}}" wx:key="{{index}}" 
+    data-index="{{index}}" bindtap="selectTab" >{{item.name}}</text>
+</view>
+<view class="ranking-list">
+  <block wx:if="{{containerShow == 0}}">
+    <view class="ranking-item" wx:for="{{inviterInfo}}" wx:key="{{index}}">
+      <view class="item-info">
+        <text class="item-index">{{index+1}}</text>
+        <image src="{{item.avatar}}" mode="widthFix"></image>
+        <text>{{item.userName}}</text>
+      </view>
+      <text class="item-cont fontGray">总邀请人数 {{item.inviteCount}} 人</text>
+    </view>
+  </block>
+  <block wx:elif="{{containerShow == 1}}">
+    <view class="ranking-item" wx:for="{{salesInfo}}" wx:key="{{index}}">
+      <view class="item-info">
+        <text class="item-index">{{index+1}}</text>
+        <image src="{{item.avatar}}" mode="widthFix"></image>
+        <text>{{item.userName}}</text>
+      </view>
+      <text class="item-cont fontGray">总销售额 {{item.teamTurnover}} 元</text>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,19 @@
+<form bindsubmit="withdrawSubmit">
+  <view class="withdraw-box">
+    <picker bindchange="bindPickerChange" value="{{pickID}}" range="{{array}}">
+    <view class="picker">
+      提现方式：<text>{{array[pickID]}}</text>
+    </view>
+  </picker>
+    
+  </view>
+  <view class="withdraw-box">
+    <text>提现</text>
+    <view class="withdraw-input">￥<input type="digit" name="money"  bindinput="inputMax" data-value="value" value="{{realWithdrawNum}}" /></view>
+    <text class="fontGray">可提现金额 {{maxWithdrawNum}} 元</text>
+  </view>
+  <button class="withdrawBtn" form-type="submit" type="primary">申请提现</button>
+</form>
+
+
+<view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>

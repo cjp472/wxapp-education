@@ -1,0 +1,60 @@
+<block wx:if="{{!loadingOver}}" >
+  <view class="la-ball-clip-rotate-pulse la-blue">
+    <view></view>
+    <view></view>
+  </view>
+</block>
+
+
+<block wx:if="{{loadingOver}}">
+  <scroll-view class="shopcar-page">
+    <view class="empty {{showEmpty? 'fade-in':'hide'}}" >
+      <image src="../../images/shopcar_empty.png" mode="widthFix"></image>
+      <text>赶快去购物吧</text>
+    </view>
+    <view class="goods-container" wx:for="{{shopcarList}}" wx:key="{{index}}" data-index="{{index}}"
+    bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE">
+      <view class="good-detail" style="{{item.moveStyle}}">
+        <view class="good-cbk">
+          <icon wx:if="{{item.status == 0}}" type="success" color="gray" size="20"  />
+          <icon wx:elif="{{item.shopCarSelt}}" type="success" color="red" size="20" bindtap="bindCheckbox" data-index="{{index}}"/>
+          <icon wx:else type="circle" size="20" bindtap="bindCheckbox" data-index="{{index}}"/>
+        </view>
+        <image class="good-image" src="{{IMG_URL}}{{item.picPath}}" mode="widthFix"/> 
+        <text class="fontGray failType">{{item.status == 0?'已抢完':''}}</text>
+        <view class="good-text">
+          <text class="good-title {{item.status == 0?'fontGray':''}}">{{item.goodsName}}</text>
+          <view class="good-bottom">
+            <view class="good-price ">
+              <text class="offer-price fontRed {{item.status == 0?'fontGray':''}}">￥{{item.offerPrice?item.offerPrice:item.userPrice}}</text>
+              <text class="user-price fontGray">{{item.offerPrice?'￥'+item.userPrice:''}}</text>
+            </view>
+            <view class="good-num {{item.status == 0?'fontGray':''}}">
+              <text class="{{minusStatuses[index]}}" data-index="{{index}}" bindtap="bindMinus">-</text>
+              <input type="number" data-index="{{index}}" bindblur="bindManual" value="{{item.goodsNum}}" maxlength="3" />
+              <text class="normal" data-index="{{index}}" bindtap="bindPlus">+</text>
+            </view>
+          </view>
+        </view>
+        
+      </view>
+      <view class="del-btn" bindtap="delItem" data-index="{{index}}">删除</view> 
+    </view>
+    </scroll-view> 
+    <toast hidden="{{toastHidden}}" bindchange="bindToastChange">
+      {{toastStr}}
+    </toast>
+
+  <view class="footer">
+    <view class="allgoods-ckb">
+      <icon wx:if="{{allGoodsCkb == 1}}" type="success" color="red" size="20" bindtap="bindSelectAll" data-index="{{index}}"/>
+      <icon wx:elif="{{allGoodsCkb == 0}}" type="circle" size="20" bindtap="bindSelectAll" data-index="{{index}}"/>
+      <text>全选</text>
+    </view>
+    <view class="settlement">
+      <view class="allPrice">总价: <text>￥{{allPrice}}</text></view>
+      <view class="setlBtn"  bindtap="bindCheckout">结算</view>
+    </view>
+  </view>
+  <view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>
+</block>

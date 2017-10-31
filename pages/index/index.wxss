@@ -1,0 +1,92 @@
+@import "../../template/template.wxss";
+
+.pDown{
+  padding:20rpx;
+}
+/*轮播图*/
+.carousel-box{
+   height: 370rpx; 
+}
+.carousel-item{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+.carousel-img{
+  width: 100%;
+}
+
+.section,/*section*/
+.flex-layout{/*flex布局*/
+  margin-top: 10rpx;
+}
+.flex-item{
+  width: 49%;
+}
+.description text{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* 首页功能按钮 */
+.func-list{
+  margin-bottom:10rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: #fff;
+}
+.func-item{
+  text-align: center;
+}
+.item-box{
+  padding-bottom:10rpx;
+  width: 150rpx;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.func-item image{
+  padding: 15rpx 0;
+  width: 80rpx;
+  margin: 0 auto;
+}
+.func-item text{
+  font-size: 26rpx;
+}
+.goods-name{
+  /* height: 66rpx;  */
+  font-size: 30rpx;
+  -webkit-line-clamp: 2;
+}
+.goods-introduction{
+  font-size: 24rpx;
+  color:#999;
+  -webkit-line-clamp: 1;
+}
+.goods-price{
+  font-size: 28rpx;
+  color: #e93e3e;
+}
+
+.content-tab{
+  padding: 20rpx;
+  display: flex;
+  background-color: #fff;
+}
+.content-tab view{
+  position: relative;
+  padding-bottom:15rpx;
+  text-align: center;
+  width:50%;
+}
+.content-tab-on:after{
+  content: ' ';
+  position: absolute;
+  bottom:0;
+  left:145rpx;
+  width:60rpx;
+  height: 4rpx;
+  background-color: #00c3c9;
+}

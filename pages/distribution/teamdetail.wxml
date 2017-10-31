@@ -1,0 +1,9 @@
+<view class="distributor-list">
+  <view class="distributor-item" wx:for="{{distributor}}" wx:key="{{index}}">
+  <view class="item-info">
+    <image src="{{item.avatarUrl}}" mode="widthFix"></image>
+    <text>{{item.nickName}}</text>
+  </view>
+  <!-- <text class="item-cost fontGray">{{item.cost}}</text> -->
+</view>
+</view>

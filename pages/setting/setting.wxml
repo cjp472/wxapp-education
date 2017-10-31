@@ -1,0 +1,20 @@
+<form bindsubmit="submitInfo" class="{{isEdit? '':'unEdit'}}">
+  <view class="persionInfo flexColumn">
+    <text class="secTitle">个人资料</text>
+    <input type="text" disabled="{{disabled}}" name="userName" placeholder="姓名" value="{{userName}}"  placeholder-style="font-size:28rpx" />
+    <input type="number" disabled="{{disabled}}" name="phone"  placeholder="手机号" value="{{phone}}"   placeholder-style="font-size:28rpx" />
+    <input type="text" disabled="{{disabled}}" name="userCode" placeholder="身份证" value="{{userCode}}"  placeholder-style="font-size:28rpx" />
+  </view>
+  <view class="alipayInfo flexColumn">
+    <text class="secTitle">支付宝帐号</text>
+    <input type="text" disabled="{{disabled}}" name="alipayAccount"  placeholder="支付宝帐号" value="{{alipayAccount}}"  placeholder-style="font-size:28rpx" />
+  </view>
+  <view class="bankInfo flexColumn">
+    <text class="secTitle">银行卡</text>
+    <input type="number" disabled="{{disabled}}" name="bankCard"  placeholder="银行卡号" value="{{bankCard}}" placeholder-style="font-size:28rpx" />
+    <input type="text" disabled="{{disabled}}" name="openBank" placeholder="所属银行" value="{{openBank}}"    placeholder-style="font-size:28rpx" />
+    <input type="text" disabled="{{disabled}}" name="bankBranch" placeholder="开户支行" value="{{bankBranch}}"  placeholder-style="font-size:28rpx" />
+  </view>
+  <button class="submitBtn" form-type="submit" type="primary">{{btnText}}</button>
+</form>
+<view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>

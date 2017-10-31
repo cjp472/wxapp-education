@@ -1,0 +1,75 @@
+<!--index.wxml-->
+
+<import src="../../template/template.wxml" />
+<!-- ----------加载动画---------- -->
+
+<block wx:if="{{!loadingOver}}" >
+  <view class="la-ball-clip-rotate-pulse la-blue">
+    <view></view>
+    <view></view>
+  </view>
+</block>
+<block wx:if="{{loadingOver}}">
+
+<!-- ----------轮播图---------- -->
+ <view class="container" >
+    <swiper class="carousel-box" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" indicator-active-color="{{indicatorActiveColor}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{carousel}}" wx:key="{{index}}">
+        <swiper-item class="carousel-item">
+          <image class="carousel-img" src="{{IMG_URL}}{{item.picPath}}" mode="widthFix"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+<!-- ----------首页版块---------- -->
+  <!-- <view class="section" wx:for="{{purchase}}" wx:key="{{index}}">
+    <text class="section-title">{{item.title}}</text>
+    <scroll-view class="section-container" scroll-x>
+      <view class="section-item" wx:for="{{item.seckill}}" wx:key="{{index}}" data-index="{{index}}" bindtap="toGoodsDetail">
+        <image src="{{IMG_URL}}{{item.goodsImage}}" mode="scaleToFill"></image>
+      </view>
+    </scroll-view>
+  </view> -->
+
+
+  <!-- ----------首页功能按钮---------- -->
+    <view class="func-list" style="justify-content: {{justifyContent}};">
+      <view class="func-item" wx:for="{{funcList}}" wx:key="{{index}}" style="width: {{funcListWidth}}%;">
+        <view class="item-box" data-index="{{index}}" bindtap="funcPage" >
+          <image src="{{IMG_URL}}{{item.image}}" mode="widthFix"></image>
+          <text >{{item.title}}</text>
+        </view>
+      </view>
+    </view>
+
+  <!-- ----------首页商品列表---------- -->
+    <!-- <view class="flex-layout" wx:for="{{flexInfo}}" wx:key="{{index}}">
+      <text class="flex-title">{{item.title}}</text>
+      <view class="flex-container">
+        <view class="flex-item" wx:for="{{goodsInfo}}" wx:key="{{index}}" data-index="{{index}}" bindtap="toGoodsDetail">
+            <image src="{{IMG_URL}}{{item.goodsImage}}" mode="widthFix"></image>  
+          <view class="description">
+            <text class="goods-name">{{item.goodsName}}</text>
+            <text class="goods-introduction">{{item.goodsName}}</text>
+            <text class="goods-price">￥{{item.goodsPrice}}</text>
+          </view>
+        </view>
+      </view>
+    </view> -->
+
+  <!-- ----------咨询/视频/音频列表---------- -->
+  <view>
+    <view class="content-tab f32">
+      <view class="content-tab-on">热门资讯</view>
+      <view >优秀学员</view>
+    </view>
+    <view wx:if="true" wx:for="{{contentInfo}}" wx:key="{{index}}">
+      <template is="content-list" data="{{...item}}"></template>
+    </view>
+  </view>
+
+
+  </view> 
+
+  <view class="{{pUpLoading?'show':'hide'}}"><template is="pUpLoading"></template></view>
+</block>

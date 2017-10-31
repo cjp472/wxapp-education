@@ -1,0 +1,74 @@
+page{
+  background-color:#fff;
+}
+/* 分类菜单 */
+.category-title{
+  position: fixed;
+  left:0;
+  width:25%;
+  height:100%;
+  text-align: center;
+  /* background-color: #fafafa; */
+  border-right: 1rpx solid #e5e5e5;
+}
+.category-title-tiem{
+  padding:24rpx;
+  font-size: 30rpx;
+}
+.on{
+  /* background: #fff; */
+  color:#028ce5;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+/* 分类内容 */
+.category-container{
+  position: fixed;
+  left:25%;
+  width:75%;
+  height:100%;
+  /* background-color: #f5f5f5; */
+}
+
+
+/* flex布局 */
+.flex-row{
+  /* margin-left: 20rpx; */
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content: space-between;
+}
+.flex-view-item{
+  /* padding:20rpx 0; */
+  width:50%;
+  text-align: center;
+  /* background-color: #fff;
+  border-bottom: 6rpx solid #f5f5f5; */
+  
+}
+.flex-view-item image{
+  margin:10rpx; 
+  width:80%;
+  background: #fff;
+}
+
+/*商品名称，价格*/
+.goods-text{
+  display: flex;
+  flex-direction: column;
+}
+.goods-name{
+  font-size: 24rpx;
+  line-height: 30rpx;
+  padding:0 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+}
+.goods-price{
+  font-size: 30rpx;
+}

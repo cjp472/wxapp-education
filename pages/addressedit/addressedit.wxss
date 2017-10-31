@@ -1,0 +1,32 @@
+.flex-row{
+  padding: 0 20rpx;
+  display: flex;
+  flex-direction: row;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.flex-row input{
+  width:500rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.flex-row text{
+  width: 150rpx;
+}
+.picker{
+  color: #1775ea;
+}
+.save-btn {
+    width: 90%;
+    height: 80rpx;
+    margin: 20rpx auto;
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 80rpx;
+    background-color: #62b900;
+    border-radius: 6rpx;
+    color: #fff;
+}

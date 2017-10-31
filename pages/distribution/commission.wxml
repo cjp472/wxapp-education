@@ -1,0 +1,13 @@
+<view class="withdraw-total">
+  <view class="withdraw-box">
+    <text class="withdraw-text">可提现金额(人民币)</text>
+    <text class="withdraw-num">{{withdrawNum}}</text>
+  </view>
+  <view class="withdraw-btn" bindtap="withdraw" data-withdrawnum="{{withdrawNum}}"><text>提现</text></view>
+</view>
+<view class="commission-list">
+  <view class="commission-item" wx:for="{{commissionInfo}}" wx:key="{{index}}">
+    <text class="commission-title">{{item.title}}</text>
+    <text class="commission-num fontGray">{{item.num}}元</text>
+  </view>
+</view>

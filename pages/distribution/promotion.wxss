@@ -1,0 +1,23 @@
+.promotion-info{
+  margin-top: 100rpx;
+  text-align: center;
+}
+.promotion-info image{
+  width: 430rpx;
+  border-radius: 20rpx;
+}
+
+.promotion-info text{
+  margin-top: 20rpx;
+  display: block;
+}
+.btn-box{
+  position: fixed;
+  bottom: 40rpx;
+  width: 100%;
+}
+.shareBtn{
+  width: 80%;
+  color: #fff;
+  background-color: #028ce5;
+}
