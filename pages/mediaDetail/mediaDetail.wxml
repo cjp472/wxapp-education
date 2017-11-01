@@ -1,0 +1,30 @@
+<!-- belongType 1.音频  2.视频  5.咨询 -->
+
+<!-- 咨询、文章 -->
+<view wx:if="{{belongType == 5}}" class="article-part">
+	<view class="title">{{mediaInfo.title}}</view>
+	<view class="time">发布时间: {{mediaInfo.date}}</view>
+	<view class="content">
+		<rich-text>{{mediaInfo.content}}</rich-text>
+	</view>
+</view>
+
+<!-- 音频 -->
+<view wx:if="{{belongType == 1}}">
+	
+</view>
+
+<!-- 视频 -->
+<view wx:if="{{belongType == 2}}" class="video-part">
+	<video src="{{IMG_URL}}{{mediaInfo.URL}}" autoplay></video>
+	<view class="share">
+		<view class="share-left">
+			<text class="title">{{mediaInfo.title}}</text>
+			<text class="time">{{mediaInfo.date}}</text>
+		</view>
+		<image mode="widthFix" src="../../images/icon_commodity_details_share.png"></image>
+	</view>
+	<view class="content">
+		<rich-text>{{mediaInfo.content}}</rich-text>
+	</view>
+</view>

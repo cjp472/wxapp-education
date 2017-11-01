@@ -6,7 +6,7 @@ Page({
     reflashRun:false,
     loadingOver:false,
     IMG_URL:app.data.IMG_URL,//图片域名地址
-    pageCount:0,//上拉加载分页器页数
+    pageCount:1,//上拉加载分页器页数
     //轮播图参数
     indicatorDots: true,//轮播图指示点
     indicatorActiveColor: '#ffffff',//当前选中的指示点颜色
@@ -19,7 +19,18 @@ Page({
     flexInfo:[{"title":"热销商品"}],
     goodsInfo:[],  //商品信息
     pUpLoading:false,//上拉加载动画
+    tabType:1,//1.热门咨询  2.优秀学员
     contentInfo:[
+      {
+        belongType:"5",
+        commentNum:6,
+        date:"09-05",
+        image:"http://xcximage.dgcckj.com/upload/audioVideo/audioVideoImages/2017/09/03/092031.jpg",
+        listenNum:9,
+        mediaID:29,
+        sender:"文章资讯",
+        title:"孩子，我希望你长大，也害怕你长大"
+      },
       {
         belongType:"5",
         commentNum:6,
@@ -73,12 +84,12 @@ Page({
   },
 
   //获取首页数据
-  loadIndex:function(){
+  loadIndex:function(tabType=1){
     var that = this;
-    var data = { orgID: app.globalData.ORG_ID,pageCount:0 };
+    var data = { orgID: app.globalData.ORG_ID,pageCount:1,tabType:tabType };
     var dataJson = JSON.stringify(data);
     wx.request({
-      url: app.data.API_URL + '/cms/home/getIndex.action',
+      url: app.data.API_URL + '/cms/dashanEnglish/getIndexTab.action',
       data: { json: dataJson },
       header: {
         'content-type': 'application/json'
@@ -92,11 +103,12 @@ Page({
           var funcListWidth = 25;
           var justifyContent = "";
         }
+          // goodsInfo: data.goodsInfo,
+          // funcList: data.funcList,
+          // funcListWidth: funcListWidth,
         that.setData({
           carousel: data.carouseInfo,
-          goodsInfo: data.goodsInfo,
-          funcList: data.funcList,
-          funcListWidth: funcListWidth,
+          contentInfo: data.contentInfo,
           justifyContent: justifyContent,
         });
         
@@ -160,6 +172,22 @@ Page({
     })
   },
 
+  // 热门资讯，优秀学员切换
+  changeTab(e){
+    console.log(e);
+    var that = this;
+    var tabType = e.currentTarget.dataset.tabtype;
+      console.log(that.data.tabType == tabType)
+    if(that.data.tabType == tabType){
+        return;
+    }
+    this.setData({
+      tabType:tabType
+    })
+    that.loadTab(tabType);
+
+  },
+
   //下拉刷新
   onPullDownRefresh: function () {
     var that = this;
@@ -181,12 +209,23 @@ Page({
   //上拉加载
   onReachBottom:function(){
     var that = this;
-    var goodsInfo = that.data.goodsInfo;
+    // var goodsInfo = that.data.goodsInfo;
     that.setData({
       pUpLoading: true,
     });
+
+    console.log(that.data.pageCount)
     that.data.pageCount ++;
-    var data = {orgID: app.globalData.ORG_ID,pageCount:that.data.pageCount}
+    console.log(that.data.pageCount)
+    that.loadTab(that.data.tabType,that.data.pageCount);
+  },
+
+
+  //加载tabType内容
+  loadTab(tabType,pageCount=1){
+    var that = this;
+    var contentInfo = that.data.contentInfo;
+    var data = {orgID: app.globalData.ORG_ID,pageCount:pageCount,tabType:tabType}
     var dataJson = JSON.stringify(data);
     wx.request({
       url: app.data.API_URL + '/cms/home/getIndex.action',
@@ -197,16 +236,28 @@ Page({
       success: function (res) {
         var data = res.data;
         console.log('data--->'+data);
-        goodsInfo = goodsInfo.concat(data.goodsInfo);
-        console.log('goodsInfo--->'+goodsInfo);
+        contentInfo = contentInfo.concat(data.contentInfo);
+        console.log('contentInfo--->'+contentInfo);
         setTimeout(function(){
           that.setData({
-            goodsInfo: goodsInfo,
+            contentInfo:contentInfo,
             pUpLoading: false,
           });
         }, 1000);
       }
     });
+  },
+
+  //咨询、视频、音频详情
+  navToDetail(e){
+    var that = this;
+    var index = e.currentTarget.dataset.index;
+    var contentInfo = that.data.contentInfo;
+    var mediaID = contentInfo[index].mediaID;
+    var belongType = contentInfo[index].belongType
+    wx.navigateTo({
+      url: '../../pages/mediaDetail/mediaDetail?mediaID='+mediaID+'belongType'+belongType,
+    })
   },
 
 

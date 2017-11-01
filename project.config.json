@@ -12,8 +12,15 @@
 	"projectname": "Education",
 	"condition": {
 		"weapp": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": 0,
+					"name": "咨询、音频、视频",
+					"pathName": "pages/mediaDetail/mediaDetail",
+					"query": "mediaID=1&belongType=2"
+				}
+			]
 		},
 		"search": {
 			"current": -1,

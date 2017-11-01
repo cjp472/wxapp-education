@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/category/category",
     "pages/about/about",
@@ -18,13 +18,14 @@
     "pages/distribution/withdraw",
     "pages/distribution/ranking",
     "pages/setting/setting",
-    "template/template"
+    "template/template",
+    "pages/mediaDetail/mediaDetail"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#00c3c9",
     "navigationBarTitleText": "欢迎访问",
-    "navigationBarTextStyle":"white",
+    "navigationBarTextStyle": "white",
     "backgroundColor": "#00c3c9"
   },
   "tabBar": {

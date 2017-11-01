@@ -1,13 +1,13 @@
 //app.js
 App({
   data: {
-    API_URL:'https://xcx.dgcckj.com/distribution_mall_cms',//正式118服务器
+    // API_URL:'https://xcx.dgcckj.com/distribution_mall_cms',//正式118服务器
     IMG_URL: 'http://xcximage.dgcckj.com', //正式118图片服务器
     //API_URL:'http://192.168.0.100:8080/distribution_mall_cms',//100服务器
     //API_URL:'http://192.168.0.184:8090/distribution_mall_cms',//184服务器
     //API_URL: 'http://192.168.0.120:8080/distribution_mall_cms',//本地服务器
     // API_URL: 'http://192.168.0.136:8080/distribution_mall_cms',//136服务器
-    //API_URL: 'http://yqh285.tunnel.qydev.com/distribution_mall_cms',//100域名服务器
+    API_URL: 'http://lcf285.tunnel.qydev.com/distribution_mall_cms',//lcf域名服务器}
     // inviterID:0,
   },
   onLaunch: function (options) {
@@ -82,7 +82,7 @@ App({
 
   globalData: {
     wxName:"大山英语",//小程序名称
-    ORG_ID: 2,//商户ID(唯一值)
+    ORG_ID: 22,//商户ID(唯一值)
     userInfo: null,
     userID:null,
     inviterID:0,

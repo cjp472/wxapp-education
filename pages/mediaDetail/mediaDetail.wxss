@@ -1,0 +1,30 @@
+page{
+	font-size: 26rpx;
+	background-color: #fff;
+}
+/* 咨询、文章 */
+.article-part{
+	
+}
+.article-part .title{
+	padding-top: 20rpx;
+	width:400rpx;
+	margin:0 auto;
+	text-align: center;
+	font-size: 30rpx;
+}
+.article-part .time{
+	margin-top:10rpx;
+	padding:30rpx;
+	font-size: 20rpx;
+	color:#8f8f8f;
+	text-align: right;
+}
+.article-part .content{
+	padding: 0 30rpx;
+}
+
+/* 视频 */
+.video-part video{
+  width: 100%;
+}
