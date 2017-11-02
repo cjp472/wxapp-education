@@ -4,7 +4,7 @@ page{
 }
 /* 咨询、文章 */
 .article-part{
-	
+	padding-bottom: 30rpx;
 }
 .article-part .title{
 	padding-top: 20rpx;
@@ -24,7 +24,14 @@ page{
 	padding: 0 30rpx;
 }
 
+/* 音频 */
+
+
 /* 视频 */
 .video-part video{
   width: 100%;
+}
+.video-part .share{
+	display: flex;
+	justify-content: space-between;
 }

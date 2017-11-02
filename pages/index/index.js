@@ -96,20 +96,12 @@ Page({
       },
       success: function (res) {
         var data = res.data;
-        if (data.funcList.length<5){
-          var funcListWidth = 100 / data.funcList.length;
-          var justifyContent = "center";
-        }else{
-          var funcListWidth = 25;
-          var justifyContent = "";
-        }
-          // goodsInfo: data.goodsInfo,
-          // funcList: data.funcList,
-          // funcListWidth: funcListWidth,
+        console.log('text')
+        console.log(data);
+        
         that.setData({
           carousel: data.carouseInfo,
           contentInfo: data.contentInfo,
-          justifyContent: justifyContent,
         });
         
         setTimeout(function(){
@@ -184,6 +176,7 @@ Page({
     this.setData({
       tabType:tabType
     })
+    console.log('tabType---->'+tabType)
     that.loadTab(tabType);
 
   },
@@ -213,7 +206,6 @@ Page({
     that.setData({
       pUpLoading: true,
     });
-
     console.log(that.data.pageCount)
     that.data.pageCount ++;
     console.log(that.data.pageCount)
@@ -228,22 +220,33 @@ Page({
     var data = {orgID: app.globalData.ORG_ID,pageCount:pageCount,tabType:tabType}
     var dataJson = JSON.stringify(data);
     wx.request({
-      url: app.data.API_URL + '/cms/home/getIndex.action',
+      url: app.data.API_URL + '/cms/dashanEnglish/getIndexTab.action',
       data: { json: dataJson },
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
         var data = res.data;
-        console.log('data--->'+data);
-        contentInfo = contentInfo.concat(data.contentInfo);
-        console.log('contentInfo--->'+contentInfo);
-        setTimeout(function(){
+        console.log(data);
+        if(pageCount == 1){
+          that.setData({
+            contentInfo:data.contentInfo,
+            pUpLoading: false,
+          });
+          return;
+        }
+        if(data.contentInfo.length > 0){
+          contentInfo = contentInfo.concat(data.contentInfo);
+          console.log(contentInfo);
           that.setData({
             contentInfo:contentInfo,
             pUpLoading: false,
           });
-        }, 1000);
+        }else{
+          that.setData({
+            pUpLoading: false,
+          });
+        }
       }
     });
   },
@@ -251,12 +254,14 @@ Page({
   //咨询、视频、音频详情
   navToDetail(e){
     var that = this;
+    console.log(e);
     var index = e.currentTarget.dataset.index;
     var contentInfo = that.data.contentInfo;
     var mediaID = contentInfo[index].mediaID;
-    var belongType = contentInfo[index].belongType
+    var belongType = contentInfo[index].belongType;
+    console.log(belongType)
     wx.navigateTo({
-      url: '../../pages/mediaDetail/mediaDetail?mediaID='+mediaID+'belongType'+belongType,
+      url: '../../pages/mediaDetail/mediaDetail?mediaID='+mediaID+'&belongType='+belongType,
     })
   },
 

@@ -19,5 +19,5 @@
 .shareBtn{
   width: 80%;
   color: #fff;
-  background-color: #028ce5;
+  background-color: #00c3c9;
 }

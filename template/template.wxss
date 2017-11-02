@@ -10,7 +10,7 @@
 .la-ball-pulse {
     display: block;
     font-size: 0;
-    color: #028ce5;
+    color: #00c3c9;
 }
 .la-ball-pulse.la-dark {
     color: #fff;
@@ -118,7 +118,7 @@
 .la-ball-beat {
     display: block;
     font-size: 0;
-    color: #028ce5;
+    color: #00c3c9;
 }
 .la-ball-beat.la-dark {
     color: #333;

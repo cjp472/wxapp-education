@@ -8,17 +8,29 @@
 	},
 	"compileType": "weapp",
 	"libVersion": "1.6.0",
-	"appid": "wxc43a593a88cdebe0",
+	"appid": "wx28c58bcc0cbf9c98",
 	"projectname": "Education",
 	"condition": {
 		"weapp": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": 0,
 					"name": "咨询、音频、视频",
 					"pathName": "pages/mediaDetail/mediaDetail",
 					"query": "mediaID=1&belongType=2"
+				},
+				{
+					"id": -1,
+					"name": "关于我们",
+					"pathName": "pages/about/about",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "视频",
+					"pathName": "pages/mediaDetail/mediaDetail",
+					"query": "meidaID=45&belongType=2"
 				}
 			]
 		},

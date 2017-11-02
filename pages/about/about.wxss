@@ -15,8 +15,8 @@
   text-align: center;
 }
 .on{
-  color: #028ce5;
-  border-bottom: 4rpx solid #028ce5;
+  color: #00c3c9;
+  border-bottom: 4rpx solid #00c3c9;
 }
 
 .container{

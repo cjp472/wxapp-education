@@ -17,8 +17,8 @@
   font-size: 30rpx;
 }
 .on{
-  color:#028ce5;
-  border-bottom:4rpx solid #028ce5;
+  color:#00c3c9;
+  border-bottom:4rpx solid #00c3c9;
 }
 
 /* 排行榜列表 */
@@ -50,7 +50,7 @@
   text-align: center;
   vertical-align:middle;
   color: #fff;
-  background-color: #028ce5;
+  background-color: #00c3c9;
   border-radius: 10rpx;
 }
 .item-info image{

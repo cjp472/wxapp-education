@@ -10,13 +10,13 @@
 </view>
 
 <!-- 音频 -->
-<view wx:if="{{belongType == 1}}">
+<view wx:if="{{belongType == 1}}" class="audio">
 	
 </view>
 
 <!-- 视频 -->
 <view wx:if="{{belongType == 2}}" class="video-part">
-	<video src="{{IMG_URL}}{{mediaInfo.URL}}" autoplay></video>
+	<video src="{{mediaInfo.URL}}" autoplay></video>
 	<view class="share">
 		<view class="share-left">
 			<text class="title">{{mediaInfo.title}}</text>

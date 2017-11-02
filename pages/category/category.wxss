@@ -17,7 +17,7 @@ page{
 }
 .on{
   /* background: #fff; */
-  color:#028ce5;
+  color:#00c3c9;
   font-size: 34rpx;
   font-weight: bold;
 }

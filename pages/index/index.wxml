@@ -63,7 +63,7 @@
       <view class="{{tabType==1?'content-tab-on':''}}" bindtap="changeTab" data-tabtype="1">热门资讯</view>
       <view class="{{tabType==2?'content-tab-on':''}}" bindtap="changeTab" data-tabtype="2">优秀学员</view>
     </view>
-    <view wx:if="true" wx:for="{{contentInfo}}" wx:key="{{index}}" bindtap="navToDetail" data-index="{{index}}">
+    <view wx:if="true" wx:for="{{contentInfo}}" wx:key="index"  bindtap="navToDetail" data-index="{{index}}">
       <template is="content-list" data="{{...item}}"></template>
     </view>
   </view>

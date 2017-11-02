@@ -16,7 +16,7 @@
   justify-content: space-between;
   padding:15rpx 20rpx;
   height: 100rpx;
-  background: #028ce5;
+  background: #00c3c9;
   color:#fff;
 }
 .spike{
