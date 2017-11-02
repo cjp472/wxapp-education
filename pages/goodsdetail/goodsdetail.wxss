@@ -65,6 +65,18 @@
   font-size: 34rpx;
 }
 
+
+.level-text{
+  margin-top: 20rpx;
+  padding:20rpx;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.level-text image{
+  width:30rpx;
+}
+
 /* 一元圆梦*/
 .one-buy{
   margin-top:20rpx;
@@ -136,7 +148,7 @@
   width: 150rpx;
 }
 .shopcar-btn image{
-  width: 70rpx;
+  width: 50rpx;
   position: relative;
   top: 2rpx;
 }
@@ -180,18 +192,15 @@
   width: 50%;
 }
 .add-shopcat{
-  background-color: #ccbb08;
+  background-color: #fccdbd;
 }
 .buy-now{
   width: 50%;
   color:#fff;
-  background-color: #ea2626;
+  background-color: #eb3e02;
   border-radius:0%;
-  font-size: 40rpx;
+  /*font-size: 40rpx;*/
 }
-
-
-
 
 
 

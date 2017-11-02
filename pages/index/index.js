@@ -15,33 +15,17 @@ Page({
     duration: 1000,//轮播滑动动画时长
     carousel: [],//轮播图
     purchase:[],//水平营销板块(已经废弃)
-    funcList:[],//宫格营销模块
+    funcList:[
+      {image:'../../images/icon_homepage_about_us.png',title:'关于我们',pageType:99},
+      {image:'../../images/icon_homepage_sign_in.png',title:'签到',pageType:100},
+      {image:'../../images/icon_homepage_course.png',title:'课程',pageType:4},
+      {image:'../../images/icon_homepage_service.png',title:'客服',pageType:98},
+    ],//宫格营销模块
     flexInfo:[{"title":"热销商品"}],
     goodsInfo:[],  //商品信息
     pUpLoading:false,//上拉加载动画
     tabType:1,//1.热门咨询  2.优秀学员
-    contentInfo:[
-      {
-        belongType:"5",
-        commentNum:6,
-        date:"09-05",
-        image:"http://xcximage.dgcckj.com/upload/audioVideo/audioVideoImages/2017/09/03/092031.jpg",
-        listenNum:9,
-        mediaID:29,
-        sender:"文章资讯",
-        title:"孩子，我希望你长大，也害怕你长大"
-      },
-      {
-        belongType:"5",
-        commentNum:6,
-        date:"09-05",
-        image:"http://xcximage.dgcckj.com/upload/audioVideo/audioVideoImages/2017/09/03/092031.jpg",
-        listenNum:9,
-        mediaID:29,
-        sender:"文章资讯",
-        title:"孩子，我希望你长大，也害怕你长大"
-      },
-    ],//咨询/视频和音频列表
+    contentInfo:[],//咨询/视频和音频列表
   },
   
   onLoad: function (options) {
@@ -120,8 +104,12 @@ Page({
     var pageType = funcList[index].pageType;
     console.log(pageType);
     switch (pageType) {
+      case 100:
+        //签到
+        that.showMessage('该功能正在开发中')
+        break;
       case 4:
-        wx.navigateTo({
+        wx.switchTab({
           url: '../../pages/category/category',//分类
         })
         break;
@@ -263,6 +251,22 @@ Page({
     wx.navigateTo({
       url: '../../pages/mediaDetail/mediaDetail?mediaID='+mediaID+'&belongType='+belongType,
     })
+  },
+
+
+  //显示提示消息
+  showMessage: function (text) {
+    var that = this
+    that.setData({
+      showMessage: true,
+      messageContent: text
+    })
+    setTimeout(function () {
+      that.setData({
+        showMessage: false,
+        messageContent: ''
+      })
+    }, 3000)
   },
 
 

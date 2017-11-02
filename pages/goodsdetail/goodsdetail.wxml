@@ -15,7 +15,7 @@
 </swiper> 
 
 <!-- 营销模块 -->
-<block wx:if="{{marketing}}">
+<!-- <block wx:if="{{marketing}}">
   <view class="spike-box">
     <view class="spike">
       <text class="userPrice">￥{{goodsData.offerPrice}}</text>
@@ -30,7 +30,7 @@
       <text class="marketing-cond">{{goodsData.residue}}人次</text>
     </view> 
   </view> 
-</block> 
+</block>  -->
 
 <!-- 商品名称价格 -->
 <view class="goods-cont">
@@ -38,11 +38,17 @@
   <text class="goods-cont-price fontRed">￥{{goodsData.offerPrice?goodsData.offerPrice:goodsData.goodsPrice}}</text>
 </view>
 
+<!-- 水平测试按钮 -->
+<view class="level-text f24" bindtap="navTo" data-link="levelText">
+  <text>请做一些测试题来测试您的水平</text>
+  <image mode="widthFix" src="../../images/icon_my_advance.png"></image>
+</view>
+
 <!-- 优惠券 -->
 <!-- <view class="coupon"></view> -->
 
 <!-- 一元云购开奖记录 -->
-<block wx:if="{{lotteryInfo}}">
+<!-- <block wx:if="{{lotteryInfo}}">
   <view  class="one-buy">
     <text class="one-buy-title">一元幸运开奖</text>
     <image src="{{lotteryInfo.userImage}}" mode="widthFix"></image>
@@ -51,7 +57,7 @@
     <text class="one-buy-participateNum fontGray">参与次数: {{lotteryInfo.lotteryNum}} 次</text>
     <text class="one-buy-time fontGray">开奖时间: {{lotteryInfo.lotteryTime}}</text>
   </view>
-</block>
+</block> -->
 
 <view class="goods-detail" >
   <text>商品详情</text>
@@ -73,9 +79,10 @@
     <text class="shopcar-num1">购物车</text>
   </view>
   <view class="shop-btn">
-    <text class="add-shopcat" bindtap="{{goodsData.isClick == 0? 'warmTips': goodsData.isClick == 2?'powerDrawer':'addGoods'}}" data-statu="open" style="background-color:{{goodsData.isClick == 0? '#c7c7c7':'#ccbb08'}}">{{goodsData.isClick ==0? '已售空':goodsData.isClick ==2?'一元圆梦':'加入购物车'}}</text>
+    <!-- <text class="add-shopcat" bindtap="{{goodsData.isClick == 0? 'warmTips': goodsData.isClick == 2?'powerDrawer':'addGoods'}}" data-statu="open" style="background-color:{{goodsData.isClick == 0? '#c7c7c7':'#ccbb08'}}">{{goodsData.isClick ==0? '已售空':goodsData.isClick ==2?'一元圆梦':'加入购物车'}}</text> -->
+    <text class="add-shopcat f26" bindtap="navTo" data-link="addShopcar">加入购物车</text>
     
-     <button class="buy-now" open-type="share">分享好友</button>
+     <view class="buy-now f26" bindtap="navTo" data-link="buyNow">立即报名</view>
   </view> 
 </view>
 

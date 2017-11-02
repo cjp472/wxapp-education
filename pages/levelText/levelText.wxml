@@ -1,0 +1,14 @@
+<view class="level-text f28">
+	<view class="text-item" wx:for="{{textList}}" wx:key="{{index}}">
+		<text class="title">{{item.title}}</text>
+		<radio-group class="radio-group" bindchange="radioChange">
+		  <label class="radio" wx:for="{{item.list}}" wx:key="{{index}}">
+		    <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+		  </label>
+		</radio-group>
+	</view>
+</view>
+<view class="submit-btn" bindtap="submitText">完成</view>
+
+
+<view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{showMessage}}">{{messageContent}}</view>

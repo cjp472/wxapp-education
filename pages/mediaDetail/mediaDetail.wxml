@@ -15,16 +15,31 @@
 </view>
 
 <!-- 视频 -->
-<view wx:if="{{belongType == 2}}" class="video-part">
-	<video src="{{mediaInfo.URL}}" autoplay></video>
-	<view class="share">
-		<view class="share-left">
-			<text class="title">{{mediaInfo.title}}</text>
-			<text class="time">{{mediaInfo.date}}</text>
+<view wx:if="{{belongType != 5}}" class="media-part">
+	<view wx:if="{{belongType == 2}}">
+		<video src="{{mediaInfo.mediaUrl}}" autoplay></video>
+	</view>
+	<view wx:if="{{belongType == 1}}" class="audio-part">
+		<image class="audioBanner" src="{{mediaInfo.image}}" ></image>
+		<view class="play-bth" bindtap="audioPlay">
+			<image src="{{playImg}}" mode="widthFix"></image>
 		</view>
-		<image mode="widthFix" src="../../images/icon_commodity_details_share.png"></image>
+		<audio src="{{mediaInfo.mediaUrl}}" id="englishAudio"></audio>
+	</view>
+	<view class="share">
+		<view class="share-left ">
+			<text class="title f30 fBold">{{mediaInfo.title}}</text>
+			<text class="time f24 fGray">{{mediaInfo.date}}</text>
+		</view>
+		<view class="share-btn">
+			<image mode="widthFix" src="../../images/icon_commodity_details_share.png"></image>
+			<button open-type="share"></button>
+		</view>
 	</view>
 	<view class="content">
 		<rich-text>{{mediaInfo.content}}</rich-text>
 	</view>
 </view>
+
+
+<view class="message {{showMessage ? 'fade-in' : ''}}" hidden="{{!showMessage}}">{{messageContent}}</view>

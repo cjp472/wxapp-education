@@ -34,9 +34,9 @@
 
   <!-- ----------首页功能按钮---------- -->
     <view class="func-list" style="justify-content: {{justifyContent}};">
-      <view class="func-item" wx:for="{{funcList}}" wx:key="{{index}}" style="width: {{funcListWidth}}%;">
+      <view class="func-item" wx:for="{{funcList}}" wx:key="{{index}}" style="width: 25%;">
         <view class="item-box" data-index="{{index}}" bindtap="funcPage" >
-          <image src="{{IMG_URL}}{{item.image}}" mode="widthFix"></image>
+          <image src="{{item.image}}" mode="widthFix"></image>
           <text >{{item.title}}</text>
         </view>
       </view>
@@ -73,3 +73,5 @@
 
   <view class="{{pUpLoading?'show':'hide'}}"><template is="pUpLoading"></template></view>
 </block>
+
+<view class="message {{showMessage ? 'fade-in' : ''}} f30" hidden="{{!showMessage}}">{{messageContent}}</view>

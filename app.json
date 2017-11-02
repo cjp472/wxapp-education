@@ -19,7 +19,8 @@
     "pages/distribution/ranking",
     "pages/setting/setting",
     "template/template",
-    "pages/mediaDetail/mediaDetail"
+    "pages/mediaDetail/mediaDetail",
+    "pages/levelText/levelText"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -38,6 +39,12 @@
         "iconPath": "images/home_icon.png",
         "selectedIconPath": "images/home_icon_hl.png",
         "pagePath": "pages/index/index"
+      },
+      {
+        "text": "课程",
+        "iconPath": "images/category_icon.png",
+        "selectedIconPath": "images/category_icon_hl.png",
+        "pagePath": "pages/category/category"
       },
       {
         "text": "购物车",

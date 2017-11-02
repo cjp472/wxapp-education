@@ -1,0 +1,27 @@
+/* pages/levelText/levelText.wxss */
+.text-item{
+	background-color: #fff;
+	margin-bottom: 10rpx;
+}
+.text-item .title{
+	padding-left:30rpx;
+}
+.radio-group{
+	padding:30rpx;
+	display: flex;
+	flex-direction: column;
+}
+.radio{
+	margin:5rpx 0;
+}
+.submit-btn{
+	margin:20rpx auto;
+	width: 440rpx;
+	height: 85rpx;
+	line-height: 85rpx;
+	text-align: center;
+	font-size: 34rpx;
+	color:#fff;
+	background-color: #00c3c9;
+	border-radius: 10rpx;
+}

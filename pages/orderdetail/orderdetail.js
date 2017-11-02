@@ -9,6 +9,7 @@ Page({
     IMG_URL: app.data.IMG_URL,
     loadingOver: false,
     totalPrices:"",//订单总价
+    // goodsID:0,//商品ID
     recInfo:[],
     orderDetails:[],
     showMessage: false,
@@ -16,23 +17,51 @@ Page({
     oneClick:true,
   },
 
+  onLoad: function(options){
+    var that = this;
+    var goodsID = options.goodsID;
+    console.log(goodsID);
+    that.setData({
+      goodsID
+    })
+  },
   onShow:function(){
     var that = this;
-    var data = { userID: app.globalData.userID };
+    var data = { userID: app.globalData.userID,goodsID:that.data.goodsID,specPropertyValueID:1,addressID:0 };
     var dataJson = JSON.stringify(data);
+    // wx.request({
+    //   url: app.data.API_URL + '/cms/goodsOrder/orderDetails.action',
+    //   data: { json: dataJson },
+    //   header: {
+    //     'content-type': 'application/json'
+    //   },
+    //   success: function (res) {
+    //     var data = res.data
+    //     that.setData({
+    //       orderDetails: data.orderDetails,
+    //       totalPrices: data.totalPrices,
+    //       recInfo: data.recInfo,
+    //     })
+    //   }
+    // });
     wx.request({
-      url: app.data.API_URL + '/cms/goodsOrder/orderDetails.action',
+      url: app.data.API_URL + '/cms/dashanEnglish/orderCommit.action',
       data: { json: dataJson },
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
         var data = res.data
+        console.log(data);
         that.setData({
           orderDetails: data.orderDetails,
-          totalPrices: data.totalPrices,
-          recInfo: data.recInfo,
+          totalPrices: data.totalPrices
         })
+        // that.setData({
+        //   orderDetails: data.orderDetails,
+        //   totalPrices: data.totalPrices,
+        //   recInfo: data.recInfo,
+        // })
       }
     });
   },
@@ -53,7 +82,7 @@ Page({
     var recInfo = that.data.recInfo;
     var oneClick = that.data.oneClick;
     if (!recInfo.addressID){
-      that.showMessage("收货地址不能为空");
+      that.showMessage("个人信息不能为空");
       return;
     }
     if (!oneClick) {
@@ -134,4 +163,9 @@ Page({
       })
     }, 3000)
   },
+
+  changeAddress(){
+    var that = this;
+    that.showMessage('该功能正在开发中')
+  }
 })

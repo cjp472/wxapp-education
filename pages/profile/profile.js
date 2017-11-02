@@ -3,11 +3,17 @@ Page({
 
   data: {
     IMG_URL: app.data.IMG_URL,
-    loadingOver: false,
+    loadingOver: true,
     showMessage: false,
     messageContent: '',//提示信息
     userInfo:[],
-    funcList: [],
+    funcList: [
+      {name:'全部订单',pageType:0},
+      {name:'签到记录',pageType:1},
+      {name:'我的等级',pageType:2},
+      {name:'我的积分',pageType:3},
+      {name:'我的作业',pageType:4},
+    ],
     distribList: [],
   },
   /**
@@ -26,12 +32,12 @@ Page({
 
   onShow:function(){
     var that = this;
-    that.loadList();
-    setTimeout(function () {
-      that.setData({
-        loadingOver: true
-      })
-    }, 1000)
+    // that.loadList();
+    // setTimeout(function () {
+    //   that.setData({
+    //     loadingOver: true
+    //   })
+    // }, 1000)
   },
 
   loadList:function(){
@@ -49,6 +55,25 @@ Page({
         })
       }
     })
+  },
+
+  //跳转页面(大山英语)
+  navTo(e){
+    console.log(e);
+    var that = this;
+    var index = e.currentTarget.dataset.index;
+    var funcList = that.data.funcList;
+    var pageType = funcList[index].pageType;
+    switch(pageType){
+      case 0:
+        wx.navigateTo({
+          url: '../../pages/profileitem/profileitem?pageType='+pageType,//我的订单
+        })
+        break;
+      default:
+        that.showMessage('该功能正在开发中',1)
+        break;
+    }
   },
 
   jumpDistribList:function(e){
@@ -118,7 +143,7 @@ Page({
   },
 
   //显示提示消息
-  showMessage: function (text) {
+  showMessage: function (text,time=2) {
     var that = this
     that.setData({
       showMessage: true,
@@ -129,7 +154,7 @@ Page({
         showMessage: false,
         messageContent: ''
       })
-    }, 3000)
+    }, time*1000)
   },
 
 })

@@ -37,13 +37,19 @@ page{
   height: 100rpx;
   line-height: 100rpx;
   border-bottom:3rpx solid #f5f5f5;
+  display: flex;
+  justify-content: space-between;
 }
-.func-item image{
+/*.func-item image{
   margin-left: 20rpx;
   vertical-align:middle;
   width:40rpx;
-}
+}*/
 .func-item text{
   margin-left: 20rpx;
   font-size: 26rpx;
+}
+.func-item image{
+  margin: 35rpx 20rpx;
+  width: 30rpx;
 }

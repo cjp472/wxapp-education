@@ -20,6 +20,8 @@ page{
   color:#00c3c9;
   font-size: 34rpx;
   font-weight: bold;
+  background-color: #f4f4f4;
+  border-left: 2rpx solid #00c3c9;
 }
 
 /* 分类内容 */

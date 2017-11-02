@@ -7,23 +7,29 @@
 
 
 <block wx:if="{{loadingOver}}">
-  <navigator url="../../pages/profileitem/profileitem?pageType=1">
+  <!-- <navigator url="../../pages/profileitem/profileitem?pageType=1"> -->
     <view class="rec-info" bindtap="changeAddress">
-      <text wx:if="{{!recInfo.addressID}}" class="empty-text">请前往填写收货信息>>></text>
+      <text wx:if="{{!recInfo.addressID}}" class="empty-text">个人信息部分</text>
       <block wx:else>
         <text class="rec-user">{{recInfo.userName}}  {{recInfo.phone}}</text>
         <text class="rec-address">{{recInfo.province}}{{recInfo.city}}{{recInfo.area}}{{recInfo.address}}</text>
       </block>
     </view>
-  </navigator>
+  <!-- </navigator> -->
 
   <view class="order-goods" >
-    <view class="goods-detail" wx:for="{{orderDetails}}" wx:key="{{index}}">
-      <image class="goods-img" src="{{IMG_URL}}{{item.picPath}}" mode="widthFix"></image>
-      <view class="goods-text">
-        <text class="goods-name">{{item.goodsName}}</text>
-        <text class="goods-num fontGray">{{item.goodsNum}}</text>
-        <text class="user-price fontRed">￥{{item.offerPrice?item.offerPrice:item.userPrice}}</text>
+    <view class="goods-item" wx:for="{{orderDetails}}" wx:key="{{index}}">
+      <view class="goods-detail" >
+        <image class="goods-img" src="{{item.image}}" mode="widthFix"></image>
+        <view class="goods-text">
+          <text class="goods-name">{{item.goodsName}}</text>
+          <text class="goods-num fontGray">{{item.goodsNum}}</text>
+          <text class="user-price fontRed">￥{{item.price}}</text>
+        </view>
+      </view>
+      <view class="lesson-msg f26">
+        <text>{{item.grade}}</text>
+        <text>{{item.school}}</text>
       </view>
     </view>
   </view>

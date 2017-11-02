@@ -1,6 +1,6 @@
 page{
 	font-size: 26rpx;
-	background-color: #fff;
+	background-color: #fafafa;
 }
 /* 咨询、文章 */
 .article-part{
@@ -28,10 +28,56 @@ page{
 
 
 /* 视频 */
-.video-part video{
+.media-part video{
   width: 100%;
 }
-.video-part .share{
+.media-part .share{
+	height: 130rpx;
+	line-height: 65rpx;
+	margin:15rpx 0;
+	padding:0 30rpx;
 	display: flex;
 	justify-content: space-between;
+	background-color: #fff;
+}
+.media-part .share .share-left{
+	display: flex;
+	flex-direction: column;
+}
+
+.media-part .share .share-btn{
+	position: relative;
+}
+.media-part .share .share-btn image{
+	margin-top:40rpx;
+	width:40rpx;
+}
+.media-part .share .share-btn button{
+	position: absolute;
+	top:40rpx;
+	right:0;
+	display: block;
+	width:40rpx;
+	height: 40rpx;
+	/*background-color: #000;*/
+	opacity: 0;
+}
+.media-part .content{
+	padding:30rpx;
+	background-color: #fff;
+}
+.audio-part{
+	position: relative;
+}
+.audio-part .audioBanner{
+	width:100vw;
+	height: 100vw;
+}
+.audio-part .play-bth{
+	position: absolute;
+	left:315rpx;
+	top:315rpx;
+}
+.audio-part .play-bth image{
+	width:120rpx;
 }

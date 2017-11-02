@@ -439,4 +439,26 @@ Page({
 
     }, 1000);
   },
+
+  //页面跳转
+  navTo(e){
+    // console.log(e);
+    var that = this;
+    var link = e.currentTarget.dataset.link;
+    switch(link){
+      case 'levelText':
+        wx.navigateTo({
+          url: '../../pages/levelText/levelText',//水平测试
+        })
+        break;
+      case 'addShopcar':
+        that.showMessage('该功能正在开发中')
+        break;
+      case 'buyNow':
+        wx.navigateTo({
+          url: '../../pages/orderdetail/orderdetail?goodsID='+that.data.goodsID,//订单详情(立即购买)
+        })
+        break;
+    }
+  },
 })

@@ -12,13 +12,11 @@
     </view>
   <scroll-view id="page">
     <view class="func-list">
-      <navigator url="../../pages/profileitem/profileitem?pageType={{item.pageType}}"  wx:for="{{funcList}}" wx:key="{{index}}" 
-      hover-class="none"  data-index="{{index}}">
-        <view class="func-item">
-          <image src="{{IMG_URL}}{{item.image}}" mode="widthFix"></image> 
+        <view class="func-item" wx:for="{{funcList}}" wx:key="{{index}}" bindtap="navTo" data-index="{{index}}">
+          <!-- <image src="{{IMG_URL}}{{item.image}}" mode="widthFix"></image>  -->
           <text>{{item.name}}</text>
+          <image src="../../images/icon_my_advance.png" mode="widthFix"></image>
         </view>
-      </navigator>
     </view>
     <view class="func-list {{distribList[0]?'show':'hide'}}">
       <view class="func-item" wx:for="{{distribList}}" wx:key="{{index}}"  data-index="{{index}}" bindtap="jumpDistribList">

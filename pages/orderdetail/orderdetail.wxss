@@ -49,6 +49,11 @@
 .goods-num{
   font-size: 26rpx;
 }
+.lesson-msg{
+  padding: 5rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+}
 
 /* 优惠券 */
 .order-coupon{
